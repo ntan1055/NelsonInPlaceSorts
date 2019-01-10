@@ -5,32 +5,35 @@ public class Runner {
     public static void main(String[] args)
     {
         int[] testArr = {8,6,7,5,3,0,9,10,1,2,3};
-        int[] before = testArr;
-        int[] bubbleSortArr = testArr;
-        int[] selectionSortArr = testArr;
+        SortingUtil.copyIntArray(testArr);
+        int[] bubbleSortArr = SortingUtil.copyIntArray(testArr);
+        int[] selectionSortArr = SortingUtil.copyIntArray(testArr);
+        int[] insertionSortArr = SortingUtil.copyIntArray(testArr);
         System.out.print("Before Sorting: ");
         for(int num:testArr)
             System.out.print(num + " ");
         System.out.println();
 
         InPlaceSorts.bubbleSort(bubbleSortArr);
-        int[] afterBubble = bubbleSortArr;
-
-        InPlaceSorts.selectionSort(selectionSortArr);
-        int[] afterSelection = selectionSortArr;
 
         System.out.print("After Bubble Sort: ");
-        for(int num:afterBubble)
+        for(int num:bubbleSortArr)
             System.out.print(num + " ");
         System.out.println();
+
+        InPlaceSorts.selectionSort(selectionSortArr);
 
         System.out.print("After Selection Sort: ");
-        for(int num:afterSelection)
+        for(int num:selectionSortArr)
             System.out.print(num + " ");
         System.out.println();
 
-        SortingUtil.checkSum(before, afterBubble);
-        SortingUtil.checkSum(before, afterSelection);
+        InPlaceSorts.insertionSort(selectionSortArr);
+
+        System.out.print("After Insertion Sort: ");
+        for(int num:insertionSortArr)
+            System.out.print(num + " ");
+        System.out.println();
 
         long time = System.nanoTime();
         SortingUtil.randIntArr(11);

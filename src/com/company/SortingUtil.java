@@ -41,8 +41,24 @@ public class SortingUtil
             {
                 System.out.println("The array is not sorted.");
                 j = j + array.length;
-                i = i + array.length + 1;
+                i = i + j;
+            }
+            else
+            {
+                System.out.println("The array is not sorted.");
             }
         }
+    }
+
+    public static int[] copyIntArray(int[] arr)
+    {
+        int[] copy = new int[arr.length];
+        int j = 0;
+        for(int i = 0; i < arr.length; i++)
+        {
+            copy[j] = arr[i];
+            j = j + 1;
+        }
+        return copy;
     }
 }

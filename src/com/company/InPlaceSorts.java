@@ -45,6 +45,6 @@ public class InPlaceSorts
 
     public static void insertionSort(int[] arr)
     {
-
+        
     }
 }

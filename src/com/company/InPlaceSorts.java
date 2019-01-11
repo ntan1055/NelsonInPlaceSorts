@@ -1,56 +1,109 @@
 package com.company;
 
-public class InPlaceSorts extends SortingUtil
+public class SortingUtil
 {
-    public static void bubbleSort(String[] arr)
+    public static void stringSwap(String[] arr, int j)
     {
-        int j;
-        int i;
-        for(i = 0; i < arr.length; i++)
+        String x = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = x;
+    }
+
+    public static void doubleSwap(double[] arr, int i, int j)
+    {
+        double x = arr[i];
+        arr[i] = arr[j];
+        arr[j] = x;
+    }
+
+    public static void intSwap(int[] arr, int j, int sub)
+    {
+       sub = arr[j];
+       arr[j] = arr[j-1];
+       arr[j-1] = sub;
+    }
+
+    public static int[] randIntArr(int count)
+    {
+        int[] array = new int[count];
+        for(int i = 0; i < count; i++)
         {
-            for(j = 0; j < arr.length-1-i; j++)
+            array[i] = (int)(Math.random() * 10001);
+        }
+        return array;
+    }
+
+    public static void checkSum(int[] before, int[] after)
+    {
+        int beforeSum = 0;
+        int afterSum = 0;
+        for (int i = 0; i < before.length; i++) {
+            beforeSum = beforeSum + before[i];
+        }
+        for (int j = 0; j < after.length; j++) {
+            afterSum = afterSum + after[j];
+        }
+        if (beforeSum == afterSum)
+        {
+            System.out.println("The sum before and after are equal.");
+        }
+        else if (beforeSum != afterSum)
+        {
+            System.out.println("The sum before and after are not equal.");
+        }
+    }
+
+    public static void isSorted(int[] array)
+    {
+        for(int j = 1; j < array.length; j++)
+        {
+            int i = j - 1;
+            if(array[j] < array[i])
             {
-                if(arr[j].compareTo(arr[j+1]) > 0)
-                {
-                    stringSwap(arr,j);
-                }
+                System.out.println("The array is not sorted.");
+                j = j + array.length;
+                i = i + j;
+            }
+            else
+            {
+                System.out.println("The array is not sorted.");
             }
         }
     }
 
-    public static void selectionSort(double[] arr)
+    public static String[] copyStringArray(String[] arr)
     {
-        int min;
+        String[] copy = new String[arr.length];
+        int j = 0;
         for(int i = 0; i < arr.length; i++)
         {
-            min = i;
-            for(int j = i + 1; j < arr.length; j++)
-            {
-                if(arr[j] < arr[min])
-                {
-                    min = j;
-                }
-            }
-            if(min != i)
-            {
-                doubleSwap(arr, i, min);
-
-            }
+            copy[j] = arr[i];
+            j = j + 1;
         }
+        return copy;
     }
 
-    public static void insertionSort(int[] arr)
+    public static int[] copyIntArray(int[] arr)
     {
-        int sub = 0;
-        for(int i = 1; i < arr.length; i++)
+        int[] copy = new int[arr.length];
+        int j = 0;
+        for(int i = 0; i < arr.length; i++)
         {
-            for(int j = i; j > 0; j--)
-            {
-                if(arr[j] < arr[j-1])
-                {
-                    intSwap(arr, j, sub);
-                }
-            }
+            copy[j] = arr[i];
+            j = j + 1;
         }
+        return copy;
+    }
+
+    public static double[] copyDoubleArray(double[] arr)
+    {
+        double[] copy = new double[arr.length];
+        int j = 0;
+        for(int i = 0; i < arr.length; i++)
+        {
+            copy[j] = arr[i];
+            j = j + 1;
+        }
+        return copy;
     }
 }

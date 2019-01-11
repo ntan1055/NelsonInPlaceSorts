@@ -10,7 +10,7 @@ public class InPlaceSorts extends SortingUtil
         {
             for(j = 0; j < arr.length-1-i; j++)
             {
-                if(arr[j].compareTo(arr[j+1]) > 0)
+                if(arr[j].compareTo(arr[j+1]) > 1)
                 {
                     stringSwap(arr,j);
                 }

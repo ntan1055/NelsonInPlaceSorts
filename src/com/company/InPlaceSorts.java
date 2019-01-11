@@ -1,27 +1,24 @@
 package com.company;
 
-public class InPlaceSorts
+public class InPlaceSorts extends SortingUtil
 {
-    public static void bubbleSort(int[] arr)
+    public static void bubbleSort(String[] arr)
     {
         int j;
         int i;
-        boolean swap = true;
-        while (swap) {
-            swap = false;
-            for (j = 1; j < arr.length; j++) {
-                i = j - 1;
-                if (arr[j] < arr[i]) {
-                    int x = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = x;
-                    swap = true;
+        for(i = 0; i < arr.length; i++)
+        {
+            for(j = 0; j < arr.length-1-i; j++)
+            {
+                if(arr[j].compareTo(arr[j+1]) > 0)
+                {
+                    stringSwap(arr,j);
                 }
             }
         }
     }
 
-    public static void selectionSort(int[] arr)
+    public static void selectionSort(double[] arr)
     {
         int min;
         for(int i = 0; i < arr.length; i++)
@@ -36,15 +33,24 @@ public class InPlaceSorts
             }
             if(min != i)
             {
-                int temp = arr[i];
-                arr[i] = arr[min];
-                arr[min] = temp;
+                doubleSwap(arr, i, min);
+
             }
         }
     }
 
     public static void insertionSort(int[] arr)
     {
-        
+        int sub = 0;
+        for(int i = 1; i < arr.length; i++)
+        {
+            for(int j = i; j > 0; j--)
+            {
+                if(arr[j] < arr[j-1])
+                {
+                    intSwap(arr, j, sub);
+                }
+            }
+        }
     }
 }

@@ -4,15 +4,13 @@ public class InPlaceSorts extends SortingUtil
 {
     public static void bubbleSort(String[] arr)
     {
-        int j;
-        int i;
-        for(i = 0; i < arr.length; i++)
+        for(int i = 1; i < arr.length; i++)
         {
-            for(j = 0; j < arr.length-1-i; j++)
+            for(int j = 0; j < arr.length - i; j++)
             {
-                if(arr[j].compareTo(arr[j+1]) > 1)
+                if(arr[j].compareTo(arr[j + 1]) > 0)
                 {
-                    stringSwap(arr,j);
+                    stringSwap(arr, i, j);
                 }
             }
         }
@@ -34,7 +32,6 @@ public class InPlaceSorts extends SortingUtil
             if(min != i)
             {
                 doubleSwap(arr, i, min);
-
             }
         }
     }

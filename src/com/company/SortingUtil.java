@@ -147,10 +147,10 @@ public class SortingUtil
         }
         return copy;
     }
-
-    public static int[] copyIntArray(int[] arr)
+    
+    public static double[] copyDoubleArray(double[] arr)
     {
-        int[] copy = new int[arr.length];
+        double[] copy = new double[arr.length];
         int j = 0;
         for(int i = 0; i < arr.length; i++)
         {
@@ -159,10 +159,10 @@ public class SortingUtil
         }
         return copy;
     }
-
-    public static double[] copyDoubleArray(double[] arr)
+    
+    public static int[] copyIntArray(int[] arr)
     {
-        double[] copy = new double[arr.length];
+        int[] copy = new int[arr.length];
         int j = 0;
         for(int i = 0; i < arr.length; i++)
         {

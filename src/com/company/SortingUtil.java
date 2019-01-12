@@ -2,25 +2,25 @@ package com.company;
 
 public class SortingUtil
 {
-    public static void stringSwap(String[] arr, int j)
+    public static void stringSwap(String[] arr, int i, int j)
     {
-        String x = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = x;
+        String temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     public static void doubleSwap(double[] arr, int i, int j)
     {
-        double x = arr[i];
+        double temp = arr[i];
         arr[i] = arr[j];
-        arr[j] = x;
+        arr[j] = temp;
     }
 
-    public static void intSwap(int[] arr, int j, int sub)
+    public static void intSwap(int[] arr, int j, int temp)
     {
-       sub = arr[j];
+       temp = arr[j];
        arr[j] = arr[j-1];
-       arr[j-1] = sub;
+       arr[j-1] = temp;
     }
 
     public static int[] randIntArr(int count)
@@ -33,41 +33,106 @@ public class SortingUtil
         return array;
     }
 
-    public static void checkSum(int[] before, int[] after)
+    public static void checkDoubleSum(double[] before, double[] after)
     {
-        int beforeSum = 0;
-        int afterSum = 0;
-        for (int i = 0; i < before.length; i++) {
+        double beforeSum = 0;
+        double afterSum = 0;
+        for (int i = 0; i < before.length; i++)
+        {
             beforeSum = beforeSum + before[i];
         }
-        for (int j = 0; j < after.length; j++) {
+        for (int j = 0; j < after.length; j++)
+        {
             afterSum = afterSum + after[j];
         }
         if (beforeSum == afterSum)
         {
-            System.out.println("The sum before and after are equal.");
+            System.out.println("The sum before and after are equal for the double arr.");
         }
         else if (beforeSum != afterSum)
         {
-            System.out.println("The sum before and after are not equal.");
+            System.out.println("The sum before and after are not equal for the double array.");
         }
     }
 
-    public static void isSorted(int[] array)
+    public static void checkIntSum(int[] before, int[] after)
+{
+    int beforeSum = 0;
+    int afterSum = 0;
+    for (int i = 0; i < before.length; i++)
     {
-        for(int j = 1; j < array.length; j++)
+        beforeSum = beforeSum + before[i];
+    }
+    for (int j = 0; j < after.length; j++)
+    {
+        afterSum = afterSum + after[j];
+    }
+    if (beforeSum == afterSum)
+    {
+        System.out.println("The sum before and after are equal for the int array.");
+    }
+    else if (beforeSum != afterSum)
+    {
+        System.out.println("The sum before and after are not equal for the int array.");
+    }
+}
+    public static void areStringsSorted(String[] arr)
+    {
+        boolean sorted = true;
+        for(int i = 0; i < arr.length - 1; i++)
         {
-            int i = j - 1;
-            if(array[j] < array[i])
+            if(arr[i].length() > arr[i + 1].length())
             {
-                System.out.println("The array is not sorted.");
-                j = j + array.length;
-                i = i + j;
+                sorted = false;
             }
-            else
+        }
+        if(sorted == false)
+        {
+            System.out.println("The string array is not sorted.");
+        }
+        if(sorted == true)
+        {
+            System.out.println("The string array is sorted.");
+        }
+    }
+
+    public static void areDoubleValuesSorted(double[] arr)
+    {
+        boolean sorted = true;
+        for(int i = 0; i < arr.length - 1; i++)
+        {
+            if(arr[i] > arr[i + 1])
             {
-                System.out.println("The array is not sorted.");
+                sorted = false;
             }
+        }
+        if(sorted == false)
+        {
+            System.out.println("The double array is not sorted.");
+        }
+        if(sorted == true)
+        {
+            System.out.println("The double array is sorted.");
+        }
+    }
+
+    public static void areIntValuesSorted(int[] arr)
+    {
+        boolean sorted = true;
+        for(int i = 0; i < arr.length - 1; i++)
+        {
+            if(arr[i] > arr[i + 1])
+            {
+                sorted = false;
+            }
+        }
+        if(sorted == false)
+        {
+            System.out.println("The int array is not sorted.");
+        }
+        if(sorted == true)
+        {
+            System.out.println("The int array is sorted.");
         }
     }
 
